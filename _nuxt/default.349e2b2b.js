@@ -1,0 +1,1 @@
+import o from"./TheFooter.4f1e7537.js";import{J as n,o as c,E as r,K as s,M as a}from"./entry.bcc17af8.js";const _={},f={class:"flex flex-col items-center justify-center text-center font-comfortaa bg-orange-400 p-10 h-screen"};function l(e,m){const t=o;return c(),r("div",f,[s(e.$slots,"default"),a(t)])}const p=n(_,[["render",l]]);export{p as default};
