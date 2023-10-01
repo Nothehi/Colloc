@@ -17,7 +17,7 @@ function isPreviuesAvailable(): boolean {
 }
 
 function isNextAvailable(): boolean {
-	return !(Number(route.params.dictionary) + 1 > book.dictionaries.length)
+	return !(Number(route.params.dictionary) + 1 > book!.dictionaries.length)
 }
 
 function previues() {
@@ -45,11 +45,11 @@ function next() {
             </button>
 
             <div class="flex flex-col items-start justify-center flex-grow py-2 ml-2">
-                <h2 class="font-patua">{{ book.title }}</h2>
+                <h2 class="font-patua">{{ book!.title }}</h2>
                 
                 <div class="flex flex-row items-baseline justify-center w-full mt-1">
-                    <span class="mr-2 font-mono text-xs whitespace-nowrap">{{ book.dictionaries.length }} Words</span>
-                    <progress-bar :total="book.dictionaries.length" :current="Number(route.params.dictionary)" />
+                    <span class="mr-2 font-mono text-xs whitespace-nowrap">{{ book!.dictionaries.length }} Words</span>
+                    <progress-bar :total="book!.dictionaries.length" :current="Number(route.params.dictionary)" />
                 </div>
             </div>
         </header>
@@ -58,17 +58,17 @@ function next() {
             <div class="flex flex-col items-center justify-center">
                 <h1 class="after:content-[' '] after:w-4/6 after:h-1/3 after:bg-lime-400 after:block after:-right-1 
                     after:bottom-0.5 after:absolute after:-z-10 relative z-10 h-full text-2xl font-bold font-mplus">
-                    {{ book.dictionaries[Number(route.params.dictionary) - 1].en }}
+                    {{ book!.dictionaries[Number(route.params.dictionary) - 1].en }}
                 </h1>
 
                 <span class="mt-2 text-sm text-gray-600">
-                    {{ book.dictionaries[Number(route.params.dictionary) - 1].phonetic }}
+                    {{ book!.dictionaries[Number(route.params.dictionary) - 1].phonetic }}
                 </span>
             </div>
 
             <h3 class="w-full mt-6 text-lg font-bold font-vazir text-lime-500" 
                 :class="[showAnswer ? 'opacity-100' : 'opacity-0']">
-                {{ book.dictionaries[Number(route.params.dictionary) - 1].fa }}
+                {{ book!.dictionaries[Number(route.params.dictionary) - 1].fa }}
             </h3>
         </section>
 

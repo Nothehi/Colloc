@@ -8,7 +8,6 @@ const router = useRouter()
 const collection = useCollocation()
 
 const book = collection.find(route.params.category, route.params.collection)
-
 </script>
 
 <template>
@@ -18,12 +17,12 @@ const book = collection.find(route.params.category, route.params.collection)
                 <icon-chevron-left />
             </button>
             
-            <h2 class="text-center font-patua">{{ book.title }}</h2>
+            <h2 class="text-center font-patua">{{ book?.title }}</h2>
         </header>
 
         <section class="w-full space-y-4">
             <button
-                v-for="(dic, idx) in book.dictionaries" 
+                v-for="(dic, idx) in book?.dictionaries" 
                 :key="idx"
                 @click="() => router.push({ name: 'dictionary', params: {dictionary: `${idx + 1}`} })"
                 class="block w-full px-2 py-1 text-left bg-white border border-black rounded-lg shadow-neuburtal

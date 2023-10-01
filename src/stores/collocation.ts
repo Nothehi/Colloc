@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import collections from '@/data/collections.json'
 
 export interface Dictionary {
+    phonetic: string,
     en: string,
     fa: string
 }
@@ -23,12 +24,12 @@ export const useCollocation = defineStore('collocation', () => {
 		return title.toLowerCase().replaceAll(' ', '-')
 	}
 
-	function find(category: string, slug: string) {
-		if (collection[category] !== undefined) {
-			return collection[category].find((item: Item) => getSlug(item.title) == slug)
+	function find(category: string | string[], slug: string | string[]) {
+		if (category == 'books') {
+			return collection.books.find((item: Item) => getSlug(item.title) == slug)
 		}
 
-		return 'not found!'
+		return undefined
 	}
 
 	return { collection, find, getSlug }
